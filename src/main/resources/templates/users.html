@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ru"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Users</h1>
+<table style="width: 1%;" border="1" cellpadding="5">
+    <tr bgcolor="#dcdcdc">
+        <td>Id</td>
+        <td>Name</td>
+        <td>Surname</td>
+        <td>Email</td>
+        <td colspan="2"></td>
+    </tr>
+    <th:block th:each="element : ${list}">
+        <tr>
+            <td th:text="${element.getId()}"></td>
+            <td th:text="${element.getFirstName()}"></td>
+            <td th:text="${element.getLastName()}"></td>
+            <td th:text="${element.getEmail()}"></td>
+            <td><a th:href="@{'/edit?id=' + ${element.getId()}}">Edit</a></td>
+            <td><a th:href="@{'/delete?id=' + ${element.getId()}}">Delete</a></td>
+        </tr>
+    </th:block>
+</table>
+<a href="/newUser">Add new User</a>
+
+</body>
+</html>
