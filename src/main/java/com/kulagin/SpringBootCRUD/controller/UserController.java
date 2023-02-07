@@ -43,15 +43,13 @@ public class UserController {
 
     @PostMapping("save")
     public String saveUser(@ModelAttribute("user") User user) {
-        System.out.println(user.toString());
         userService.saveUser(user);
         return "redirect:/";
     }
 
     @PatchMapping("update")
     public String updateUser(@ModelAttribute("user") User user) {
-        System.out.println(user.toString());
-        userService.saveUser(user);
+        userService.updateUser(user);
         return "redirect:/";
     }
 

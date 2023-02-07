@@ -24,6 +24,15 @@ public class UserSeviceImp implements UserService {
         userDao.save(user);
     }
 
+    @Transactional
+    @Override
+    public void updateUser(User user) {
+        User buffUser = userDao.getOne(user.getId());
+        buffUser.setFirstName(user.getFirstName());
+        buffUser.setLastName(user.getLastName());
+        buffUser.setEmail(user.getEmail());
+        userDao.save(buffUser);
+    }
 
     @Transactional
     @Override
