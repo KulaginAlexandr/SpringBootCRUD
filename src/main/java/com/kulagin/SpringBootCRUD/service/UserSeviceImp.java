@@ -27,11 +27,7 @@ public class UserSeviceImp implements UserService {
     @Transactional
     @Override
     public void updateUser(User user) {
-        User buffUser = userDao.getOne(user.getId());
-        buffUser.setFirstName(user.getFirstName());
-        buffUser.setLastName(user.getLastName());
-        buffUser.setEmail(user.getEmail());
-        userDao.save(buffUser);
+        userDao.save(user);
     }
 
     @Transactional
